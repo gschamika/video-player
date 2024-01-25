@@ -3,6 +3,8 @@ package videoplayer;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,6 +42,15 @@ public class FXMLDocumentController implements Initializable {
             Media media = new Media (filePath);    
             mediaPlayer = new MediaPlayer(media);
             mediaView.setMediaPlayer(mediaPlayer);
+            
+            DoubleProperty width = mediaView.fitWidthProperty();
+            DoubleProperty height = mediaView.fitHeightProperty();
+            
+            width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
+            height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+            
+            
+            
             mediaPlayer.play();
         }      
     }
