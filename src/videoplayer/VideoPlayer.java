@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author ACER
+ * @author Sumudu Chamika
  */
 public class VideoPlayer extends Application {
     

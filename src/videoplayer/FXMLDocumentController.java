@@ -16,7 +16,7 @@ import javafx.stage.FileChooser;
 
 /**
  *
- * @author ACER
+ * @author Sumudu Chamika
  */
 public class FXMLDocumentController implements Initializable {
     
@@ -49,11 +49,50 @@ public class FXMLDocumentController implements Initializable {
             width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
             height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
             
-            
-            
             mediaPlayer.play();
         }      
     }
+    
+    @FXML
+    private void pauseVideo(ActionEvent event){
+        mediaPlayer.pause();
+    }
+    
+    @FXML
+    private void playVideo(ActionEvent event){
+        mediaPlayer.play();
+        mediaPlayer.setRate(1);
+    }
+    
+    @FXML
+    private void stopVideo(ActionEvent event){
+        mediaPlayer.stop();
+    }
+    
+    @FXML
+    private void fastVideo(ActionEvent event){
+        mediaPlayer.setRate(1.5);
+    }
+    
+    @FXML
+    private void fasterVideo(ActionEvent event){
+        mediaPlayer.setRate(2);
+    }
+    
+    @FXML
+    private void slowVideo(ActionEvent event){
+        mediaPlayer.setRate(.75);
+    }
+    
+    @FXML
+    private void slowerVideo(ActionEvent event){
+        mediaPlayer.setRate(0.5);
+    }
+    
+    @FXML
+    private void exitVideo(ActionEvent event){
+        
+    } 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
